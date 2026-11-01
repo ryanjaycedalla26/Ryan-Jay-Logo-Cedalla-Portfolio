@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Add your sitemap URL after choosing your public domain.
