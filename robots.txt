@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-# Add your sitemap URL after choosing your public domain.
+
+Sitemap: https://ryan-jay-portfolio.vercel.app/sitemap.xml

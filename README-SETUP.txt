@@ -1,67 +1,49 @@
 # Ryan Jay Logo Cedalla — Portfolio Website
 
-## What's included
-- Responsive portfolio homepage (desktop, tablet, and mobile layouts)
-- Home, About, Skills, Experience, Education, Projects, and Contact sections
-- Mobile hamburger navigation
-- Light/dark mode saved in browser local storage
-- Live project search and category filtering
-- Four individual project detail pages under `/projects/`
-- Basic SEO metadata and accessible labels/focus states
+Live website: https://ryan-jay-portfolio.vercel.app/
 
-## Open locally
-1. Extract this folder.
-2. Open `index.html` in a browser, or use VS Code with the Live Server extension.
-3. Test the navigation, theme toggle, project search, category filters, and detail pages.
+## Website contents
+- Responsive portfolio homepage with Home, About, Skills, Experience, Education, Projects, and Contact sections
+- Mobile navigation and light/dark theme toggle
+- Project search and category filters
+- Five individual project detail pages under `projects/`
+- CV PDF in `assets/documents/`
+- Contact form connected to Formspree
+- SEO metadata, canonical URLs, Open Graph/Twitter sharing metadata, `robots.txt`, and `sitemap.xml`
 
-## IMPORTANT: Personal details to complete before publishing
-Search for the following placeholders:
-- `College / University name to be confirmed` in `index.html`
-- `Replace with your email address` in `index.html`
-- `Add your LinkedIn / GitHub URLs` in `index.html`
-- `PORTFOLIO_EMAIL = ""` in `assets/js/script.js`
+## Run locally
+1. Download or clone the complete repository.
+2. Keep `index.html`, `assets/`, `projects/`, `robots.txt`, and `sitemap.xml` together in the website root.
+3. Open `index.html` in a browser, or open the folder in VS Code and use the Live Server extension.
+4. Test the navigation, theme toggle, project search and filters, all five project detail pages, CV links, and contact form.
 
-Set `PORTFOLIO_EMAIL` to your actual public contact email if you want the contact form to open a pre-filled email in the visitor's email application. This is a mailto-based form; it does not send messages directly or store them on a server. For true website form delivery, connect a backend or trusted form service and add spam protection.
+## Project pages
+The portfolio includes these five project detail pages:
+1. Spheres of Sweetness — fruit illustration
+2. Personal Brand Identity — logo variations and design process
+3. Brew Haven — coffee shop brand and digital marketing graphics
+4. Anchor — typography poster for a volleyball apparel brand concept
+5. Portfolio Website Wireframes — website layout planning
+
+Each project page is located in its own folder inside `projects/`.
 
 ## CV
-The approved CV is stored at `assets/documents/Ryan_Jay_Logo_Cedalla_CV.pdf`. The View CV button opens this PDF, and the Download CV button downloads the same file. Replace this file at the same path whenever the CV is updated.
+The CV is stored at `assets/documents/Ryan_Jay_Logo_Cedalla_CV.pdf`. Replace the file at the same path when publishing an updated CV so the existing CV links continue to work.
 
-## Project content
-The Projects section now contains five supplied project works:
-1. Spheres of Sweetness — hand-drawn fruit illustration
-2. Personal Brand Identity — logo variations and process screenshots
-3. Brew Haven — digital marketing graphic and process images
-4. Anchor — typography poster and process images
-5. Portfolio Website Wireframes — hand-drawn layout planning
+## Contact form (Formspree)
+The contact form submits to the Formspree endpoint configured in `index.html` / the form markup: `https://formspree.io/f/moeekpyl`. It uses an AJAX POST request and displays inline success or error feedback. The form includes required-field validation and a hidden `_gotcha` honeypot field.
 
-Each project has its own detail page and image gallery. The images were taken from the supplied `projects.zip`. Review project descriptions, role wording, and any course-specific details before publishing.
+**Important:** The form code is connected, but successful email delivery still needs to be tested. Submit a test message from the live website, then check the Formspree dashboard and the configured recipient inbox. Complete any recipient verification or activation steps requested by Formspree. A success message in the browser alone does not confirm inbox delivery.
 
-## Hosting / SEO
-Before public deployment:
-1. Choose the final hosting provider and public domain.
-2. Add the canonical URL and Open Graph URL/image metadata to `index.html`.
-3. Create `sitemap.xml` using the final public domain and include the homepage and project detail URLs.
-4. Set the sitemap URL in `robots.txt`.
-5. Upload the site to the hosting root so `/assets/` and `/projects/` paths resolve.
-6. Enable HTTPS and test all pages and links.
-7. Test on a real phone, tablet, laptop, and desktop.
+## SEO and hosting
+- The canonical website URL is `https://ryan-jay-portfolio.vercel.app/`.
+- `sitemap.xml` lists the homepage and all five project detail pages.
+- `robots.txt` allows public crawling and points search engines to the sitemap.
+- The site is configured for static hosting. Keep the repository's website files in the deployment root so the `assets/` and `projects/` paths resolve correctly.
+- Vercel is connected to this GitHub repository. Commits pushed to the production branch (`main`) should trigger a new deployment automatically.
 
-This starter is a static front-end site. A static host can serve it, but the contact form needs a backend/form service to actually receive submissions.
-
-LOCAL PREVIEW (WITHOUT A SERVER)
-1. Extract the complete ryan-portfolio folder. Do not move index.html away from its assets and projects folders.
-2. Open the main index.html file in your browser.
-3. Open a project from the Projects section. The project detail pages now use relative paths so their CSS and JavaScript can load when opened with file://.
-4. Use each page's “Back to portfolio” link to return to the main page.
-
-Note: Some browser features and deployment-only clean URLs may behave differently when using file://. For the final public website, deploy the folder to a web host and test the public URL.
-
-
-CONTACT FORM (FORMSPREE)
-------------------------
-The contact form submits to the Formspree endpoint supplied by the site owner: https://formspree.io/f/moeekpyl
-It uses an AJAX POST request with an Accept: application/json header, so visitors remain on the page and see inline success or error feedback. The form includes browser-side required-field validation, a hidden _gotcha honeypot field, and a disabled submit button while sending. Formspree handles final acceptance, spam filtering, and email notifications.
-
-TESTING NOTE
-------------
-The code integration is complete, but actual message delivery must be verified by submitting a test from the website and checking the Formspree dashboard and configured recipient inbox. Complete any recipient verification or activation requested by Formspree. A browser success message alone does not prove that an email reached the inbox.
+## Before considering the site fully finished
+- Open the live site on a phone and a desktop browser.
+- Test every navigation link, project page, image, and CV link.
+- Submit a real test through the contact form and verify receipt through Formspree.
+- After deployment, submit the sitemap URL to Google Search Console if you want Google to discover the pages more easily. Search indexing is not immediate or guaranteed.
