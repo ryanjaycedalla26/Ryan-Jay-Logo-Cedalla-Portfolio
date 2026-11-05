@@ -5,6 +5,17 @@
   const navLinks = document.querySelector(".nav-links");
   const themeButton = document.querySelector(".theme-toggle");
 
+
+  // Privacy-friendly Vercel custom events.
+  // Only record the action type; never send names, email addresses, or other personal data.
+  document.addEventListener("click", event => {
+    const link = event.target.closest('a[href*=".pdf"]');
+    if (!link || typeof window.va !== "function") return;
+
+    const eventName = link.hasAttribute("download") ? "CV Download" : "CV Open";
+    window.va("event", { name: eventName });
+  }, true);
+
   // Accessible mobile navigation
   if (menuButton && navLinks) {
     menuButton.addEventListener("click", () => {
