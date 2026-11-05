@@ -47,3 +47,31 @@ The contact form submits to the Formspree endpoint configured in `index.html` / 
 - Test every navigation link, project page, image, and CV link.
 - Submit a real test through the contact form and verify receipt through Formspree.
 - After deployment, submit the sitemap URL to Google Search Console if you want Google to discover the pages more easily. Search indexing is not immediate or guaranteed.
+
+## Website analytics (Vercel Web Analytics)
+
+Analytics tracking has been added to the homepage and all five project detail pages.
+
+### What it tracks
+- Page views and popular pages/projects (each project detail page has its own URL).
+- Visitor totals and daily unique visitors.
+- Device category (mobile, tablet, desktop), browser, operating system, and referrer information.
+- CV link clicks as two custom events: `CV Download` (download button) and `CV Open` (open-in-new-tab links).
+
+### Privacy approach
+- No analytics fields contain a visitor's name, email address, phone number, or form contents.
+- The CV event records only the action name; it does not send a visitor identifier or personal details.
+- Vercel Web Analytics is designed to use anonymized, aggregated data and does not use cookies. Vercel uses a short-lived, daily visitor hash rather than cross-site tracking.
+- The existing contact form remains separate; do not send its form values to analytics.
+
+### Enable it in Vercel
+1. Open https://vercel.com/dashboard and select this portfolio project.
+2. Open **Analytics** in the project sidebar.
+3. Click **Enable** for Web Analytics.
+4. Deploy the updated website (push the updated files to the connected GitHub production branch, or redeploy from Vercel).
+5. Visit the live homepage and at least one project page. Then check **Analytics** in the Vercel dashboard.
+
+Page-view and device reports are available in Web Analytics. Vercel's current documentation lists custom events as available on Pro and Enterprise plans; therefore, the CV `CV Download` / `CV Open` event reporting may require one of those plans. If the project is on Hobby, page views and device reports can still work, but do not assume the CV custom-event panel will be available.
+
+The analytics script is served by Vercel at `/_vercel/insights/script.js`; it will not collect production data when the site is simply opened from a local `file://` path. Analytics also needs to be enabled in the Vercel project dashboard before data appears.
+
